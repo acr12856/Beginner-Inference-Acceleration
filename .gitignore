@@ -1,0 +1,9 @@
+C++/build/CMakeFiles
+C++/build/src
+C++/build/cmake_install.cmake
+C++/build/CMakeCache.txt
+C++/build/Makefile
+C++/CMakeLists.local.txt
+Python/resnet-18.onnx
+Python/resnet-18_quantized.onnx
+.DS_Store
