@@ -23,9 +23,11 @@ A pretrained ResNet-18 is exported to ONNX format, and is then converted from a 
 ### Setup Instructions
 
 1. **Install ONNX Runtime**
+
    Download the appropriate ONNX Runtime package for your platform from the [official releases](https://github.com/microsoft/onnxruntime/releases).
 
 2. **Configure Paths**
+
    Edit the root `CMakeLists.txt` file and set the following variables to match your ONNX Runtime installation:
    ```cmake
    set(ORT_LIB_PATH "/path/to/onnxruntime/lib")
@@ -33,6 +35,7 @@ A pretrained ResNet-18 is exported to ONNX format, and is then converted from a 
    ```
 
 3. **Build the Project**
+
    ```bash
    cd C++
    cmake -B build
@@ -40,6 +43,7 @@ A pretrained ResNet-18 is exported to ONNX format, and is then converted from a 
    ```
 
 4. **Run the Benchmark**
+
    ```bash
    cd build/src
    ./main
