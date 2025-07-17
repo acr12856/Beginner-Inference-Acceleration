@@ -31,6 +31,14 @@ void run_inference(char* onnx_filename, int num_runs)
     double latency = 0;
     const char* input_names[] = {input_name.get()};
     const char* output_names[] = {output_name.get()};
+
+    // Warmup to eliminate memory optimization overhead behind the scenes
+    for (int i=0; i<10; i++)
+    {
+        session.Run(Ort::RunOptions{nullptr}, input_names, &input_tensor, 1, output_names, 1);
+    }
+
+    // Inference runs
     for (int i=0; i<num_runs; i++)
     {
         auto start = std::chrono::high_resolution_clock::now();
