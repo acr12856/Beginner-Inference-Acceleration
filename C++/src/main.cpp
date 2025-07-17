@@ -6,6 +6,7 @@
 
 void run_inference(char* onnx_filename, int num_runs)
 {
+    // Create runtime environment
     Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "inference");
     Ort::SessionOptions session_options;
     Ort::Session session(env, onnx_filename, session_options);
@@ -17,7 +18,7 @@ void run_inference(char* onnx_filename, int num_runs)
     size_t input_tensor_size = 1 * 3 * 224 * 224;
     std::vector<float> input_tensor_values(input_tensor_size, 1.0f);
 
-    // Create tensor
+    // Create input tensor. Running on CPU, can change based on hardware!
     Ort::MemoryInfo mem_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
     Ort::Value input_tensor = Ort::Value::CreateTensor<float>(
         mem_info, input_tensor_values.data(), input_tensor_size,
@@ -30,7 +31,7 @@ void run_inference(char* onnx_filename, int num_runs)
     double latency = 0;
     const char* input_names[] = {input_name.get()};
     const char* output_names[] = {output_name.get()};
-    for (int i=0; i<1000; i++)
+    for (int i=0; i<num_runs; i++)
     {
         auto start = std::chrono::high_resolution_clock::now();
         auto output_tensors = session.Run(Ort::RunOptions{nullptr},
