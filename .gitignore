@@ -1,9 +1,9 @@
-C++/build/CMakeFiles
-C++/build/src
-C++/build/cmake_install.cmake
-C++/build/CMakeCache.txt
-C++/build/Makefile
-C++/CMakeLists.local.txt
-Python/resnet-18.onnx
-Python/resnet-18_quantized.onnx
+onnx_inference_acceleration/C++/build/CMakeFiles
+onnx_inference_acceleration/C++/build/src
+onnx_inference_acceleration/C++/build/cmake_install.cmake
+onnx_inference_acceleration/C++/build/CMakeCache.txt
+onnx_inference_acceleration/C++/build/Makefile
+onnx_inference_acceleration/C++/CMakeLists.local.txt
+onnx_inference_acceleration/Python/resnet-18.onnx
+onnx_inference_acceleration/Python/resnet-18_quantized.onnx
 .DS_Store
