@@ -109,8 +109,7 @@ tb_logs/
 ├── pytorch_bs8/plugins/profile/...
 └── ...
 ```
-*NOTE* 
-Traces created on my machine are currently in tb_logs to allow people to compare the results without needing to run the notebook on their machine. 
+> **Note**: Traces created on my machine are currently in tb_logs to allow people to compare the results without needing to run the notebook on their machine. 
 ---
 
 ## Inspecting Results in TensorBoard
