@@ -46,17 +46,6 @@ python -c "import torch; print('PyTorch:', torch.__version__); import torch_tens
 
 ---
 
-## Project Workflow
-
-1. **Model Preparation**: Load a pretrained model (e.g., ResNet50) in FP32 and (optionally) convert to FP16.
-2. **Warm‑up Runs**: Run a few iterations to initialize CUDA contexts and compile kernels.
-3. **Profiling Block**: Wrap inference calls in `torch.profiler.profile` with a TensorBoard trace handler.
-4. **Batch Sizes**: Evaluate batch sizes `[1, 8, 16, 32]` for each of the three configurations.
-5. **Trace Collection**: JSON traces are automatically written under `tb_logs/<run_name>/plugins/profile/`.
-6. **TensorBoard Visualization**: Launch TensorBoard to inspect GPU utilization, kernel stats, and performance advice.
-
----
-
 ## Profiling Configuration
 
 In your inference loop, use:
